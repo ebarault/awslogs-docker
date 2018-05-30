@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  awslogs:
+    build: .
+    container_name: awslogs
+    volumes:
+      - ${PWD}/awslogs.conf:/etc/awslogs/awslogs.conf
+    restart: always
+    environment:
+      - AWSLOGS_REGION=eu-west-3
