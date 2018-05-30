@@ -8,6 +8,14 @@ RUN yum update -y && \
       cronie && \
     yum clean all
 
+# use our own logrotate cron.daily script to collect logrotate logs
+RUN rm -f /etc/cron.daily/logrotate
+COPY logrotate.cron.daily /etc/cron.daily/logrotate
+
+# make sure logrotate logs are rotated
+COPY logrotate.logrotate.d /etc/logrotate.d/logrotate
+RUN chmod +x /etc/logrotate.d/logrotate
+
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
