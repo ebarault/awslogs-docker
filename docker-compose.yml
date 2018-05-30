@@ -6,6 +6,7 @@ services:
     container_name: awslogs
     volumes:
       - ${PWD}/awslogs.conf:/etc/awslogs/awslogs.conf
+      - /var/log:/host/var/log
     restart: always
     environment:
       - AWSLOGS_REGION=eu-west-3

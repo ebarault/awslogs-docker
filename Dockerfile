@@ -1,7 +1,11 @@
 FROM amazonlinux:2018.03.0.20180424
+MAINTAINER "@ebarault"
 
 RUN yum update -y && \
-    yum install -y awslogs && \
+    yum install -y \
+      awslogs \
+      logrotate \
+      cronie && \
     yum clean all
 
 COPY start.sh /start.sh
