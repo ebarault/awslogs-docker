@@ -1,7 +1,7 @@
 /var/log/logrotate.log
 {
     rotate 4
-    size 100M
+    size 10M
     daily
     missingok
     notifempty
